@@ -67,7 +67,7 @@ async function init() {
   let state = "idle";
 
   const journeyTime = journeyMinutes * 60 * 1000;
-  let speed = length / (journeyTime / 16);
+  let speed = length / journeyTime;
 
   function saveSettings() {
 
@@ -82,7 +82,16 @@ async function init() {
 
   }
 
-  function animate() {
+  let lastTime = null;
+
+  function animate(timestamp) {
+
+    if (lastTime === null) {
+      lastTime = timestamp;
+    }
+
+    const deltaTime = timestamp - lastTime;
+    lastTime = timestamp;
 
     if (state === "forward" || state === "backward") {
 
@@ -91,7 +100,7 @@ async function init() {
       ball.setAttribute("cx", point.x);
       ball.setAttribute("cy", point.y);
 
-      t += speed * direction;
+      t += speed * deltaTime * direction;
 
       if (t >= length) {
 
@@ -122,13 +131,16 @@ async function init() {
 
   function startJourney() {
 
+    if (state !== "idle") return;
+
     direction = 1;
     t = 0;
     state = "forward";
+    lastTime = null;
 
   }
 
-  animate();
+  requestAnimationFrame(animate);
 
   // document.getElementById("getButton").addEventListener("click", () => {
   //  window.location.href = "/store/labyrinth/";
@@ -139,7 +151,7 @@ async function init() {
     journeyMinutes = Number(e.target.value);
 
     const journeyTime = journeyMinutes * 60 * 1000;
-    speed = length / (journeyTime / 16);
+    speed = length / journeyTime;
 
     saveSettings();
 

@@ -1,4 +1,4 @@
-const CACHE_NAME = "labyrinth-v1";
+const CACHE_NAME = "labyrinth-v2";
 
 const ASSETS = [
   "./",
@@ -17,6 +17,18 @@ self.addEventListener("install", event => {
     caches.open(CACHE_NAME).then(cache => {
       return cache.addAll(ASSETS);
     })
+  );
+});
+
+self.addEventListener("activate", event => {
+  event.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(
+        keys
+          .filter(key => key !== CACHE_NAME)
+          .map(key => caches.delete(key))
+      )
+    )
   );
 });
 
