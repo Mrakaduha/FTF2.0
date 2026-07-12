@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Download Your Book</title>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      text-align: center;
+    }
+
+    .box {
+      max-width: 420px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2em;
+    }
+
+    h1 {
+      font-size: 1.5em;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    p {
+      margin: 0;
+      opacity: 0.8;
+      line-height: 1.5;
+    }
+
+    #downloadBtn {
+      display: inline-block;
+      padding: 12px;
+      font-size: 1em;
+      text-decoration: none;
+      color: #000;
+      background: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #downloadBtn:hover {
+      opacity: .9;
+    }
+
+    .small {
+      font-size: 0.85em;
+      opacity: 0.5;
+      margin-top: 1em;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+
+  <h1>Thank you.</h1>
+
+  <p>
+    Your copy of <em>Fuck the Fear</em> is ready.
+  </p>
+
+  <a id="downloadBtn"
+     href="../assets/Book.pdf"
+     download>
+    Download the Book
+  </a>
+
+  <p class="small">
+    If your browser shows blank pages, download the book first and open it in your PDF reader.
+  </p>
+
+</div>
+
+</body>
+</html>
