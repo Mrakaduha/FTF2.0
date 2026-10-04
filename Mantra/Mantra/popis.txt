@@ -1,0 +1,28 @@
+Mantra Generator
+
+Jedna věta: Aplikace přehrává zvuk v pravidelném rytmu a počítá jeho opakování, aby uživatel nemusel počítat v duchu.
+
+Funkce (MVP)
+
+* jeden pevně daný zvuk
+* nastavení počtu opakování
+* nastavení pauzy mezi přehráními
+* automatické opakování zvuku
+* počítadlo průběhu (aktuální / celkem)
+* start / reset
+
+Co zatím není (vědomě)
+
+* výběr zvuků
+* vlastní nahrávání
+* vizuální kruh
+* poslední zvuk
+* komplexní cvičební režim
+
+Cíl
+
+Uživatel si všechny parametry nastaví předem, stiskne tlačítko start a dál aplikaci neovládá, dokud nedoběhne. Odříkává mantry v daném rytmu a pohledem může sledovat uzavírající se kruh.
+
+Primární cvičení spočívá v postupném zvyšování a snižování počtu manter po 10 opakováních v jednotlivých dnech od 50 do 120 a zase zpět do 50. Cvičení tedy celkem trvá 15 dní.
+
+Design aplikace: FtF tools, v barvách FtF (černá, okrová)

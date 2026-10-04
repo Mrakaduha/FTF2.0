@@ -1,0 +1,129 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: #000;
+  color: #fff;
+  font-family: sans-serif;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* SETUP BLOK */
+#controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* INPUTY VEDLE SEBE */
+.inputs {
+  display: flex;
+  gap: 12px;
+}
+
+h1 {
+  font-size: 14px;
+  font-weight: normal;
+  opacity: 0.6;
+  margin: 0;
+}
+
+input,
+select {
+  width: 80px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: none;
+  font-size: 16px;
+}
+
+select {
+  width: 104px;
+}
+
+/* START */
+#startBtn {
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: none;
+  font-size: 16px;
+
+  background: #c49a3a;
+  color: #000;
+  cursor: pointer;
+}
+
+#startBtn:hover {
+  opacity: 0.9;
+}
+
+/* LAST USED */
+#lastUsed {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+#counter {
+  display: none;
+}
+
+#resetBtn {
+  background: transparent;
+  color: #888;
+  border: none;
+  font-size: 14px;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+#resetBtn:hover {
+  opacity: 0.8;
+}
+
+#run #resetBtn {
+  display: block;
+}
+
+#run {
+  display: none;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* podkladový kruh */
+.circle-bg {
+  fill: none;
+  stroke: #222;
+  stroke-width: 8;
+}
+
+/* progress */
+#progressCircle {
+  fill: none;
+  stroke: #c49a3a;
+  stroke-width: 8;
+
+  stroke-dasharray: 314;
+  stroke-dashoffset: 314;
+
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  transition: stroke-dashoffset 1s linear;
+}
+
+#fileInput {
+  display: none;
+}
+
+#fileInput.visible {
+  display: block;
+  width: 220px;
+  color: #fff;
+  font-size: 14px;
+}

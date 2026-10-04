@@ -397,3 +397,16 @@ footer {
     width: 32px;
     height: 32px;
 }
+
+.mantra-counter {
+    width: min(90vw, 730px);
+    margin: 0 auto 3rem;
+}
+
+.mantra-counter iframe {
+    display: block;
+    width: 70%;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+    border: none;
+}
