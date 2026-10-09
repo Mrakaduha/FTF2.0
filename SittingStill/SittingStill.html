@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f4f2">
+  <title>Install Sitting Still</title>
+  <link rel="icon" href="icon-192.png" type="image/png">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; display: flex; align-items: center;
+      justify-content: center; background: #f4f4f2; color: #222;
+      font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+      text-align: center;
+    }
+    .box {
+      width: min(100% - 40px, 420px); display: flex; flex-direction: column;
+      align-items: center; gap: 1.2rem; padding: 24px;
+    }
+    img { width: 112px; height: 112px; border-radius: 24px; }
+    h1 { font-size: 1.35rem; font-weight: 500; margin: 0; letter-spacing: .12em; }
+    p { margin: 0; line-height: 1.5; opacity: .8; }
+    button, a.button {
+      display: inline-block; border: 0; border-radius: 10px; padding: 13px 28px;
+      background: #222; color: #fff; font-size: 1rem; text-decoration: none; cursor: pointer;
+    }
+    .small { font-size: .85rem; opacity: .6; }
+    #installBtn { display: none; }
+  </style>
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <main class="box">
+    <img src="icon-512.png" alt="Sitting Still icon">
+    <h1>SITTING STILL</h1>
+    <p>A simple space for sitting still.</p>
+    <p>Install on your device.<br>No account. No tracking.<br>Works offline after installation.</p>
+    <button id="installBtn">Install Sitting Still</button>
+    <a class="button" id="openBtn" href="index.html">Open Sitting Still</a>
+    <p class="small" id="help">If the Install button is not available, open the app in a supported browser and use its Install or Add to Home Screen option.</p>
+  </main>
+  <script>
+    let deferredPrompt;
+    const installBtn = document.getElementById("installBtn");
+    installBtn.addEventListener("click", async () => {
+      if (!deferredPrompt) return;
+      deferredPrompt.prompt();
+      await deferredPrompt.userChoice;
+      deferredPrompt = null;
+      installBtn.style.display = "none";
+    });
+    window.addEventListener("beforeinstallprompt", (event) => {
+      event.preventDefault();
+      deferredPrompt = event;
+      installBtn.style.display = "inline-block";
+    });
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js"));
+    }
+  </script>
+</body>
+</html>
