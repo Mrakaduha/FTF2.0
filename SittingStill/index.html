@@ -21,9 +21,10 @@ body {
 }
 
 body {
-    font-family: sans-serif;
-    background: #f4f4f2;
-    color: #222;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f5f3ee;
+    color: #292a28;
+    -webkit-font-smoothing: antialiased;
 }
 
 #settings {
@@ -32,61 +33,94 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100%;
-    gap: 4rem;
+    min-height: 100%;
+    padding: 2rem 1.5rem;
+    gap: 3.2rem;
 }
 
 #title {
-    font-size: 1rem;
-    letter-spacing: 0.35em;
-    font-weight: 400;
+    font-size: 0.9rem;
+    letter-spacing: 0.34em;
+    font-weight: 500;
+    padding-left: 0.34em;
 }
 
 #duration-control {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    justify-content: center;
+    gap: 1.8rem;
 }
 
 #duration-control button {
-    border: none;
-    background: none;
-    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.8rem;
+    height: 2.8rem;
+    border: 1px solid #dedbd3;
+    border-radius: 50%;
+    background: transparent;
+    font-family: inherit;
+    font-size: 1.5rem;
     font-weight: 300;
-    color: #555;
+    color: #565751;
     cursor: pointer;
-    padding: 0.5rem 1rem;
+    padding: 0;
+    transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
 }
 
 #duration-control button:hover {
-    color: #000;
+    background: #ebe8e0;
+    border-color: #c9c5bb;
+    color: #222320;
+}
+
+#duration-control button:focus-visible,
+#start:focus-visible {
+    outline: 2px solid #77796e;
+    outline-offset: 4px;
 }
 
 #duration-display {
     min-width: 7rem;
     text-align: center;
-    font-size: 2rem;
+    font-size: 2.15rem;
+    line-height: 1;
     font-weight: 300;
+    font-variant-numeric: tabular-nums;
+    color: #252622;
 }
 
 #duration-display span:last-child {
-    font-size: 1rem;
+    font-size: 0.9rem;
     margin-left: 0.25rem;
-    color: #777;
+    color: #85857d;
+    font-weight: 400;
 }
 
 #start {
-    border: none;
-    background: #222;
-    color: white;
-    padding: 1rem 3rem;
-    font-size: 1rem;
-    letter-spacing: 0.15em;
+    border: 1px solid #292a28;
+    border-radius: 7px;
+    background: #292a28;
+    color: #fff;
+    min-width: 8rem;
+    padding: 1rem 2.8rem;
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
     cursor: pointer;
+    transition: background 160ms ease, transform 160ms ease;
 }
 
 #start:hover {
-    background: #000;
+    background: #41423e;
+    border-color: #41423e;
+}
+
+#start:active {
+    transform: scale(0.98);
 }
 
 #session {
@@ -109,6 +143,15 @@ body {
     background: black;
 }
 
+@media (max-width: 480px) {
+    #settings {
+        gap: 2.7rem;
+    }
+
+    #duration-control {
+        gap: 1.2rem;
+    }
+}
     </style>
 </head>
 <body>
